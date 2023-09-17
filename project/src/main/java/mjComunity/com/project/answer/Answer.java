@@ -1,4 +1,4 @@
-package mjComunity.com.project;
+package mjComunity.com.project.answer;
 
 
 import jakarta.persistence.Column;
@@ -10,6 +10,7 @@ import jakarta.persistence.ManyToOne;
 
 import lombok.Getter;
 import lombok.Setter;
+import mjComunity.com.project.question.Question;
 
 import java.time.LocalDateTime;
 

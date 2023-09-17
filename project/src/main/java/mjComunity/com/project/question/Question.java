@@ -1,9 +1,10 @@
-package mjComunity.com.project;
+package mjComunity.com.project.question;
 
 import jakarta.persistence.*;
 
 import lombok.Getter;
 import lombok.Setter;
+import mjComunity.com.project.answer.Answer;
 
 import java.time.LocalDateTime;
 import java.util.List;

@@ -1,4 +1,4 @@
-package mjComunity.com.project;
+package mjComunity.com.project.sbb;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

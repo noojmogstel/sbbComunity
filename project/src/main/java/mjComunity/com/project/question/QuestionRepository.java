@@ -1,4 +1,4 @@
-package mjComunity.com.project;
+package mjComunity.com.project.question;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
