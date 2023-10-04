@@ -1,4 +1,4 @@
-package mjComunity.com.project.sbb;
+package mjComunity.com.project;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,5 +11,10 @@ public class MainController {
     @ResponseBody
     public String index(){
         return "index";
+    }
+
+    @GetMapping("/")
+    public String root(){
+        return "redirect:/question/list";
     }
 }
