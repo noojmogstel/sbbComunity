@@ -2,6 +2,7 @@ package mjComunity.com.project;
 
 import mjComunity.com.project.question.Question;
 import mjComunity.com.project.question.QuestionRepository;
+import mjComunity.com.project.question.QuestionService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,15 +14,15 @@ import java.util.Optional;
 class ProjectApplicationTests {
 
 	@Autowired
-	private QuestionRepository questionRepository;
+	private QuestionService questionService;
 
 	@Test
 	void testJpa(){
-		Optional<Question> oq = this.questionRepository.findById(1);
-		assertTrue(oq.isPresent());
-		Question q = oq.get();
-		q.setSubject("수정된 제목");
-		this.questionRepository.save(q);
+		for(int i=0;i<=300;i++){
+			String subject = String.format("테스트 데이터입니다:[%03d]",i);
+			String content = "Test Content";
+			this.questionService.create(subject,content);
+		}
 	}
 
 }

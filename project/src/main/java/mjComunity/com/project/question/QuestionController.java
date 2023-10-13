@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
+import mjComunity.com.project.answer.AnswerForm;
 import java.util.List;
 @RequestMapping("/question")
 @RequiredArgsConstructor
@@ -22,7 +22,7 @@ public class QuestionController {
     }
 
     @GetMapping("/detail/{id}")
-    public String detail(Model model, @PathVariable("id") Integer id){
+    public String detail(Model model, @PathVariable("id") Integer id,AnswerForm answerForm){
 
         Question question = this.questionService.getQuestion(id);
         model.addAttribute("question",question);
