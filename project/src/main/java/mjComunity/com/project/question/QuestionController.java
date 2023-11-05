@@ -2,6 +2,7 @@ package mjComunity.com.project.question;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,12 +15,7 @@ import java.util.List;
 public class QuestionController {
 
     private final QuestionService questionService;
-    @GetMapping("/list")
-    public String list(Model model){
-        List<Question> questionList = this.questionService.getList();
-        model.addAttribute("questionList",questionList);
-        return "question_list";
-    }
+
 
     @GetMapping("/detail/{id}")
     public String detail(Model model, @PathVariable("id") Integer id,AnswerForm answerForm){
@@ -41,5 +37,12 @@ public class QuestionController {
         }
         else{this.questionService.create(questionForm.getSubject(), questionForm.getContent());}
         return "redirect:/question/list";
+    }
+    @GetMapping("/list")
+    public String list(Model model, @RequestParam(value="page",defaultValue = "0") int page){
+        Page<Question> paging = this.questionService.getList(page);
+        model.addAttribute("paging",paging);
+        return "question_list";
+
     }
 }
