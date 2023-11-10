@@ -11,6 +11,7 @@ import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 import mjComunity.com.project.question.Question;
+import mjComunity.com.project.user.SiteUser;
 
 import java.time.LocalDateTime;
 
@@ -29,6 +30,9 @@ public class Answer {
 
     @ManyToOne
     private Question question;
+
+    @ManyToOne
+    private SiteUser author;
 
 }
 
